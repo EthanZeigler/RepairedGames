@@ -49,11 +49,6 @@ public class TowerDefense extends JFrame implements Runnable, KeyListener, Mouse
     public static void main(String[] args) {
         TowerDefense game = new TowerDefense();
         new Thread(() -> {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             game.init();
             game.start();
             game.setVisible(true);
@@ -302,9 +297,10 @@ public class TowerDefense extends JFrame implements Runnable, KeyListener, Mouse
             if (herrickU && evanU && mikeU)
                 tylerU = true;
             info = MouseInfo.getPointerInfo();
+            Point windowPoint = this.getLocationOnScreen();
             point = info.getLocation();
-            mouseX = (int) point.getX() - 4;
-            mouseY = (int) point.getY() - 50;
+            mouseX = (int) ((int) point.getX() - windowPoint.getX());
+            mouseY = (int) ((int) point.getY() - windowPoint.getY());
             buffer.clearRect(0, 0, 650, 450);
             tile = getImage("background.GIF");
             buffer.drawImage(tile, 0, 0, this);
