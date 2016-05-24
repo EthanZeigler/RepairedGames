@@ -1,0 +1,10 @@
+
+// sounds
+
+o angry.gif
+o angry2.jpg
+o angry3.jpg
+o angry4.gif
+o level1.jpg
+o lighting.jpg
+o winner.jpg
