@@ -1,0 +1,9 @@
+MISS: Miss!
+HIT: HIT!
+SINK: You sunk the {SHIPTYPE}!
+CHANGE_PLAYER_PROMPT: It's {PLAYER}'s turn!
+GAME_OVER: {PLAYER} has won!
+PLACE_SHIP: You placed the {SHIPTYPE}.
+INVALID_SHIP_PLACE: That is not a valid position. Is overlapping a boat or is off screen.
+BLOCK_ALREADY_ATTACKED: That pos
+ition has already been attacked.

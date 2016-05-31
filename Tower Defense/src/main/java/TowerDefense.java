@@ -623,7 +623,7 @@ public class TowerDefense extends JFrame implements Runnable, KeyListener, Mouse
             buffer.setFont(new Font("Serif", Font.PLAIN, 12));
             buffer.setColor(Color.BLACK);
         }
-        g.drawImage(offscreen, 0, 0, this);
+        g.drawImage(offscreen, 0, 20, this);
     }
 
     public void shooting() {

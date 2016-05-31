@@ -44,8 +44,9 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/DuckHunt/pom.xml" />
         <option value="$PROJECT_DIR$/Tower Defense/pom.xml" />
+        <option value="$PROJECT_DIR$/Zombie/pom.xml" />
+        <option value="$PROJECT_DIR$/Battleship/pom.xml" />
       </list>
     </option>
   </component>

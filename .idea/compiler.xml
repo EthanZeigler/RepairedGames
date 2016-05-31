@@ -22,20 +22,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="DuckHunt" />
-      </profile>
-      <profile default="false" name="Annotation profile for Tower Defense" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
+        <module name="Battleship" />
         <module name="Tower Defense" />
+        <module name="Zombie" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Battleship" target="1.7" />
       <module name="DuckHunt" target="1.5" />
       <module name="Tetris" target="1.5" />
       <module name="Tower Defense" target="1.8" />
+      <module name="Zombie" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

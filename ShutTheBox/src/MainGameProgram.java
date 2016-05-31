@@ -237,7 +237,7 @@ public class MainGameProgram extends JFrame implements KeyListener, MouseListene
 
 			refresh=false;
 
-            graphics.drawImage(bufferedImage,0,0,null);
+            graphics.drawImage(bufferedImage,0,20,null);
 		}
 	}
 	@Override
