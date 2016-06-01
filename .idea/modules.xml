@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AngryMan/AngryMan.iml" filepath="$PROJECT_DIR$/AngryMan/AngryMan.iml" />
       <module fileurl="file://$PROJECT_DIR$/Ballin/Ballin.iml" filepath="$PROJECT_DIR$/Ballin/Ballin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bananas/Bananas.iml" filepath="$PROJECT_DIR$/Bananas/Bananas.iml" />
       <module fileurl="file://$PROJECT_DIR$/Battleship/Battleship.iml" filepath="$PROJECT_DIR$/Battleship/Battleship.iml" />
       <module fileurl="file://$PROJECT_DIR$/RepairedGames.iml" filepath="$PROJECT_DIR$/RepairedGames.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShutTheBox/ShutTheBox.iml" filepath="$PROJECT_DIR$/ShutTheBox/ShutTheBox.iml" />
