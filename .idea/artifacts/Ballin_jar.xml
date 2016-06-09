@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Ballin:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Ballin_jar</output-path>
+    <root id="archive" name="Ballin.jar">
+      <element id="module-output" name="Ballin" />
+    </root>
+  </artifact>
+</component>

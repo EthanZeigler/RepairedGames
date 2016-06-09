@@ -22,14 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Banannas" />
         <module name="Battleship" />
         <module name="Tower Defense" />
         <module name="Zombie" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Banannas" target="1.7" />
       <module name="Battleship" target="1.7" />
       <module name="DuckHunt" target="1.5" />
       <module name="Tetris" target="1.5" />

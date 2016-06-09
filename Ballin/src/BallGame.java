@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import javax.swing.*;
@@ -21,7 +22,8 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 	double drag=0.01;
 	double [][]randomcircles=new double[8][25];
 	boolean GameRunning=true,PlayAgain=true;
-	/*
+
+    /*
 	 * 0=x-position
 	 * 1=y-position
 	 * 2=diameter
@@ -51,7 +53,16 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 	public static void main(String[] args)
 	{
 		BallGame game = new BallGame();
-		game.init();
+        new Thread(() -> {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            game.init();
+            game.setVisible(true);
+            game.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        }).start();
 	}
 	public BallGame()
 	{
@@ -60,6 +71,7 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 		d=new BallGameMathMethods();
 		t.start();
 	}
+
 	public void init()
 	{
 		addMouseMotionListener(this);
@@ -68,9 +80,9 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 		setSize(500, 500);
 		width = getSize().width;
 		height = getSize().height;
-		title=getImage(getCodeBase(), "Title.jpg");
+		title=getImage("Title.jpg");
 
-		offscreenImage = createImage(width, height);
+		offscreenImage = new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);
 		offscr = offscreenImage.getGraphics();
 	}
 
@@ -100,17 +112,19 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 		{
 			if (inBounds)
 			{
-				super.paint(g);
+				super.paint(offscr);
 
 				offscr.setColor(getBackground());
 				offscr.fillRect(0, 0, width, height);
 				offscr.setColor(Color.GREEN);
 				offscr.fillOval((int)xpos, (int)ypos, 20, 20);
-				if(playNormal==true)
+				if(playNormal==true){
 					normal();
-				if(playSeeker==true)
+				}
+				if(playSeeker==true) {
 					seeker();
-				//System.out.println(randomcircles[3][0]);
+				}
+				System.out.println(randomcircles[3][0]);
 				offscr.drawString("Score: "+score, 430, 500);
 				offscr.setColor(Color.BLACK);
 				offscr.drawRect(0, 0, 499, 499);
@@ -156,8 +170,8 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 	}
 	public void seeker()
 	{
-
 		offscr.setColor(Color.RED);
+		System.out.println("Keel");
 		initialSpawn();
 		if(circles==true)
 		{
@@ -212,13 +226,13 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 				break;
 			yplus=ycen+d.CirclePosition(xcen, xcircle, 10);
 			yminus=ycen-d.CirclePosition(xcen, xcircle, 10);
-			if(xcircle>xsqu&&xcircle<xsqu+30)
+			if(xcircle>xsqu)
 			{
 				if((yplus>ysqu&&yplus<ysqu+30)||(yminus>ysqu&&yminus<ysqu+30))
 					touched=false;
 				circles=true;
 			}
-			xcircle+=addvalue;
+			xsqu+=addvalue;
 		}
 	}
 	public void collisions(int x)
@@ -338,6 +352,7 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 			}
 			xcircle+=addvalue;
 		}
+
 	}
 	public void update(Graphics g)
 	{
@@ -463,8 +478,9 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 		// TODO Auto-generated method stub
 		if (!hasStarted)
 		{
-			if ((ev.getX() >= 240 && ev.getX() <= 290) && (ev.getY() >= 310 && ev.getY() <= 350))
-				playNormal=true;
+			if ((ev.getX() >= 240 && ev.getX() <= 290) && (ev.getY() >= 310 && ev.getY() <= 350)) {
+				playNormal = true;
+			}
 			else if ((ev.getX() >= 385 && ev.getX() <= 435) && (ev.getY() >= 310 && ev.getY() <= 350))
 				playSeeker=true;
 			
@@ -475,9 +491,9 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 			if(ev.getX()>300&&ev.getX()<380&&ev.getY()>310&&ev.getY()<330)
 			{
 				GameRunning=true;
-				//System.out.println("clicked");
+				System.out.println("clicked");
 			}
-		}		
+		}
 	}
 	@Override
 	public void mouseEntered(MouseEvent arg0) 
@@ -505,4 +521,8 @@ public class BallGame extends JFrame implements Runnable, MouseMotionListener,Mo
 		// TODO Auto-generated method stub
 
 	}
+	private Image getImage(String loc) {
+		return new ImageIcon(this.getClass().getResource("/" + loc)).getImage();
+	}
+
 }
